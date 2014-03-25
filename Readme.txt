@@ -27,7 +27,7 @@ modified pimotion.py
 
 Just a little setup to create the sync.sh file.
 
-,,,
+'''
 touch sync.sh
 sudo chmod +x sync.sh
 nano sync.sh     # paste sync.sh code below into the file and save
