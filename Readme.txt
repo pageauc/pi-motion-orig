@@ -1,6 +1,6 @@
    Raspberry Pi Python Motion Capture and syncing with Grive
    
-  [b]grive (google drive) capable raspberry pi security camera using python motion detection[/b]
+grive (google drive) capable raspberry pi security camera using python motion detection
 
 Recently I have been working on a grive capable security camera using two types of security camera cases.  One is a small fake plastic security cam case from Amazon.  Model A fits inside with wifi only.
 http://www.amazon.com/gp/product/B004D8NZ52/ref=oh_details_o01_s00_i00?ie=UTF8&psc=1
@@ -24,6 +24,7 @@ Please note this includes PIL imageFont and imageDraw python modules to optional
 modified pimotion.py
 
 Just a little setup to create the sync.sh file.
+
 [code]
 touch sync.sh
 sudo chmod +x sync.sh
@@ -34,7 +35,6 @@ sudo chmod 777 pimotion.dat
 [/code]
 
 The sync.sh bash script is used to synchronize files on raspberry pi with my google drive
-
 This will setup an /etc/init.d script so the pimotion.py script will run on boot up
 
 [code]
@@ -56,6 +56,7 @@ http://www.pihomeserver.fr/en/2013/08/15/raspberry-pi-home-server-synchroniser-l
 
 once compile is successful copy the grive executable to the folder that pimotion.py and sync.sh are located
 modify this to suit your folder structure.
+
 [code]
 sudo mv grive grive_src
 cp /home/pi/grive_src/grive/grive /home/pi
@@ -72,12 +73,14 @@ sudo ./sync.sh
 Once grive has been initialized successfully with the grive -a option then copy the /home/pi/.grive and /home/pi/.grive_state files to the /home/pi/google_drive folder per above code. This will allow grive to be executed from the /home/pi folder so it does not have to be in the google_drive folder.
 
 To test you can launch pimotion.py from a ssh terminal session
+
 [code]
 cd ~
 sudo ./pimotion.py
 [/code]
 
 from a second ssh terminal run sync.sh (make sure that motion was detected and files are in the google_drive folder to sync.  You should see a /home/pi/sync.lock file.  This was created by pimotion.py when motion photos were created.
+
 [code]
 cd ~
 sudo ./sync.sh
@@ -91,10 +94,13 @@ Once you know sync.sh is working OK you can automate the sync by running it in a
 [code]
 sudo crontab -e
 [/code]
+
 past the following line into the crontab file nano editor 
+
 [code]
 */1 * * * * /home/pi/sync.sh >/dev/nul
 [/code]
+
 ctrl-x to exit and save crontab file
 this will run once a minute.  You can change to suit your needs.  If grive is already running or there are no files to process then the script simply exits. Also if grive has been running for more than 5 minutes it is killed.  This can be changed in the script if you wish.
 
