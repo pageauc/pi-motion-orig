@@ -1,3 +1,4 @@
+<<<<<<< HEAD
                                           pimotion.py_2.0
                Raspberry Pi Python Motion Capture and goggle drive syncing using grive
                -----------------------------------------------------------------------
@@ -18,6 +19,14 @@ Fixes
 
 I have been working on a grive capable security camera using two types of security camera cases.  
 One is a small fake plastic security cam case from Amazon.  Model A or B fits inside with wifi only.
+=======
+##             Raspberry Pi Python Motion Capture and syncing with Grive   ##
+## grive (google drive) capable raspberry pi security camera using python motion detection  ##
+
+See my pi-motion-grive project for the latest version of this with option to use picamera python module and low light settings. 
+
+Recently I have been working on a grive capable security camera using two types of security camera cases.  One is a small fake plastic security cam case from Amazon.  Model A fits inside with wifi only.
+>>>>>>> origin/master
 http://www.amazon.com/gp/product/B004D8NZ52/ref=oh_details_o01_s00_i00?ie=UTF8&psc=1
 Here is a larger aluminum camera case that I have a model B installed in.  This one has room for a usb power supply etc..
 http://www.amazon.com/Monoprice-108431-Outdoor-Camera-Switchable/dp/B007VDTTTM/ref=sr_1_72?ie=UTF8&qid=1393884556&sr=8-72&keywords=fake+security+camera
