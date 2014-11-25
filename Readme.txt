@@ -1,3 +1,4 @@
+<<<<<<< HEAD
                                           pimotion.py_2.0
                Raspberry Pi Python Motion Capture and goggle drive syncing using grive
                -----------------------------------------------------------------------
