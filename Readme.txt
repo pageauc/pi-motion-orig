@@ -1,17 +1,50 @@
-    Original Raspberry Pi Lightweight Python Motion Capture and syncing with Grive
-    grive (google drive) capable raspberry pi security camera using python motion detection
+  Original Raspberry Pi Lightweight Python Motion Detection + grive syncing
+          Note: This Version Does not use picamera python libraries
+   grive capable raspberry pi security camera using python motion detection
 
-Recently I have been working on a grive capable security camera using two types of security camera cases.  One is a small fake plastic security cam case from Amazon.  Model A fits inside with wifi only.
+Recently I have been working on a grive capable security camera using two types
+of security camera cases.  One is a small fake plastic security cam case from
+Amazon.  Model A fits inside with wifi only.
 http://www.amazon.com/gp/product/B004D8NZ52/ref=oh_details_o01_s00_i00?ie=UTF8&psc=1
-Here is a larger aluminum camera case that I have a model B installed in.  There is room for power adapter etc..
+Here is a larger aluminum camera case that I have a model B installed in.
+There is room for power adapter etc..
 http://www.amazon.com/Monoprice-108431-Outdoor-Camera-Switchable/dp/B007VDTTTM/ref=sr_1_72?ie=UTF8&qid=1393884556&sr=8-72&keywords=fake+security+camera
 I may do a youtube video on setting up these cases to get the pi with camera module installed.
 
-The Raspberry Pi security camera's are working efficiently.  The current configuration uses a modified version of pimotion.py script to save files to a number sequence instead of a date-time sequence.  Also added some code (not mine) to put date/time information directly on the photo images.  This is convenient to see the exact time stamp that the photo was taken. 
-Using number sequencing allows limiting the number of files that need to get synchronized to my google drive. It was too much to manage all the dated files and cleanup in google drive.  This way I only have a set number of motion files that need to get updated via grive. If you need more history you can write a routine to save google drive files from a synchronized PC folder to a dated archive folder using a windows robocopy through a batch file.  Synchronization uses a rpi compiled version of grive.  This requires slightly modifying the source code to make it compatible with the RPI.  I may see if I can package the setup including a precompiled grive to reduce the effort required to get this working.  
-To automate the security camera operation,  I have setup pimotion.py to run from a /etc/init.d/pimotion.sh bash script by copying skeleton file to pimotion.sh script.  Then modify to run your pimotion.py script on boot.  see later in post for more setup detail.
-You must have a raspberry pi model A or B with the latest raspbian build and pi camera module installed and working.  There are several tutorials showing how to do this so it is not covered here. This assumes you know how to cut and paste into nano or similar text editor on the pi. You also need an operational internet connection via wifi or wired connection.  Wifi needs to be setup to work on boot with no desktop in order for the camera to sync unattended with your google drive.  I have written the pimotion python script and bash sync scripts to make it somewhat independent of the folder names etc.  This minimizes hard coding folder names in the scripts.  If you run the script manually from the command line then settings and activity information will be displayed.
-Just a little setup for pimotion.py  If you already have a pimotion.py then mv existing file to another file name
+The Raspberry Pi security camera's are working efficiently.  
+The current configuration uses a modified version of pimotion.py script to save
+files to a number sequence instead of a date-time sequence.  
+Also added some code (not mine) to put date/time information directly on the
+photo images.  This is convenient to see the exact time stamp that the photo 
+was taken. 
+Using number sequencing allows limiting the number of files that need to get
+synchronized to my google drive. It was too much to manage all the dated files
+and cleanup in google drive.  This way I only have a set number of motion files
+that need to get updated via grive. If you need more history you can write a 
+routine to save google drive files from a synchronized PC folder to a dated
+archive folder using a windows robocopy through a batch file.
+
+Synchronization uses a rpi compiled version of grive.  This requires slightly
+modifying the source code to make it compatible with the RPI.  I may see if I
+can package the setup including a precompiled grive to reduce the effort
+required to get this working.  
+To automate the security camera operation,  I have setup pimotion.py to run
+from a /etc/init.d/pimotion.sh bash script by copying skeleton file to
+pimotion.sh script.  Then modify to run your pimotion.py script on boot.  
+see later in post for more setup detail.
+You must have a raspberry pi model A or B with the latest raspbian build and
+pi camera module installed and working.  There are several tutorials showing
+how to do this so it is not covered here. This assumes you know how to cut and
+paste into nano or similar text editor on the pi. You also need an operational
+internet connection via wifi or wired connection.  Wifi needs to be setup to
+work on boot with no desktop in order for the camera to sync unattended with
+your google drive.  I have written the pimotion python script and bash sync
+scripts to make it somewhat independent of the folder names etc.  
+This minimizes hard coding folder names in the scripts.  If you run the script
+manually from the command line then settings and activity information
+will be displayed.
+Just a little setup for pimotion.py  If you already have a pimotion.py then
+mv existing file to another file name
 
 ssh terminal commands
 
@@ -19,7 +52,8 @@ touch pimotion.py
 sudo chmod +x pimotion.py
 sudo nano pimotion.py   # paste the code below into the pimotion.py file and save ctrl-x
 
-pimotion.py is the modified pimotion.py script based on previous modified brainflakes script.  It allows the use of a number sequence to restrict the total number of files that need to get sync'd to my google drive using grive.  See later for details on grive.
+pimotion.py is the modified pimotion.py script based on previous modified
+brainflakes script.  It allows the use of a number sequence to restrict the total number of files that need to get sync'd to my google drive using grive.  See later for details on grive.
 Please note this includes PIL imageFont and imageDraw python modules to optionally put a date-time stamp on each photo.
 modified pimotion.py
 
